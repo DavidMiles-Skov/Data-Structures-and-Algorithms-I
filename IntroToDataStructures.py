@@ -43,4 +43,76 @@ class QueueWithStacks:
         return ret_val
     
 
-# 
+# 5.1 - Stack containing integers using singly-linked list
+
+class Node:
+    def __init__(self, num, next=None):
+        self.val = num
+        self.next = next
+    def setNext(self,node):
+        self.next = node
+    def getNext(self):
+        return self.next
+    def getVal(self):
+        return self.val
+
+class StackUsingLinkedList:
+    def __init__(self, initial_node=None):
+        self.base = Node(None)
+        self.base.setNext(initial_node)
+        self.top = initial_node
+    def PUSH(self,val):
+        new_top = Node(val)
+        self.top = new_top
+    def POP(self):
+        curr_node = self.base
+        nxt_node = self.base.getNext()
+        if nxt_node == None:
+            print("Unable to POP.")
+            return None
+        else:
+            while nxt_node.getNext() != None:
+                curr_node = nxt_node
+                nxt_node = curr_node.getNext()
+            curr_node.setNext(None)
+            self.top = curr_node
+            return nxt_node
+
+# 5.2 - Queue using linked list
+
+class QueueUsingLinkedList:
+    def __init__(self, firstnode=None):
+        self.frontNode = firstnode
+        self.base = Node(None)
+    def ENQUEUE(self, node):
+        # If Queue is empty
+        if self.base.getNext() is None:
+            self.base.setNext(node)
+            self.frontNode = node
+        # If Queue is not empty
+        else:
+            prev_last = self.base.getNext()
+            self.base.setNext(node)
+            node.setNext(prev_last)
+    def DEQUEUE(self):
+        curr_node = self.base
+        nxt_node = self.base.getNext()
+        if nxt_node == None:
+            print("Unable to POP.")
+            return None
+        else:
+            while nxt_node.getNext() != None:
+                curr_node = nxt_node
+                nxt_node = curr_node.getNext()
+            curr_node.setNext(None)
+            self.top = curr_node
+            return nxt_node
+
+        
+
+
+
+
+
+
+        
