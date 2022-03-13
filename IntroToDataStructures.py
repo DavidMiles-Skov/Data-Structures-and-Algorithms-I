@@ -109,10 +109,18 @@ class QueueUsingLinkedList:
             return nxt_node
 
         
+# 9.1 - Stacks using dynamic arrays 
 
-
-
-
+class DynamicStack:
+    def __init__(self):
+        self.array = []
+    def PUSH(self,x): # O(1)
+        self.array+=[x]
+    def POP(self):
+        ret_val = self.array[-1] 
+        self.array = self.array[0:-2:1] # O(n)
+        return ret_val
+    
 
 
         
