@@ -68,7 +68,7 @@ class StackUsingLinkedList:
         curr_node = self.base
         nxt_node = self.base.getNext()
         if nxt_node == None:
-            print("Unable to POP.")
+            print("Empty Stack. Unable to POP.")
             return None
         else:
             while nxt_node.getNext() != None:
@@ -98,7 +98,7 @@ class QueueUsingLinkedList:
         curr_node = self.base
         nxt_node = self.base.getNext()
         if nxt_node == None:
-            print("Unable to POP.")
+            print("Empty Queue. Unable to DEQUEUE.")
             return None
         else:
             while nxt_node.getNext() != None:
