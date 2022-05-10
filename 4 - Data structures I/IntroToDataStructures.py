@@ -58,25 +58,22 @@ class Node:
 
 class StackUsingLinkedList:
     def __init__(self, initial_node=None):
-        self.base = Node(None)
-        self.base.setNext(initial_node)
-        self.top = initial_node
-    def PUSH(self,val):
-        new_top = Node(val)
-        self.top = new_top
-    def POP(self):
-        curr_node = self.base
-        nxt_node = self.base.getNext()
-        if nxt_node == None:
-            print("Empty Stack. Unable to POP.")
-            return None
+        if initial_node==None:
+            self.top=None
         else:
-            while nxt_node.getNext() != None:
-                curr_node = nxt_node
-                nxt_node = curr_node.getNext()
-            curr_node.setNext(None)
-            self.top = curr_node
-            return nxt_node
+            self.top=initial_node
+    def PUSH(self,n):
+        if self.top!=None:
+            new_top = n
+            prev_top = self.top
+            self.top = new_top
+            new_top.setNext(prev_top)
+        else:
+            self.top = n
+    def POP(self):
+        print(self.top.val)
+        self.top = self.top.getNext()
+        
 
 # 5.2 - Queue using linked list
 
