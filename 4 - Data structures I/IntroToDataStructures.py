@@ -115,11 +115,13 @@ class DynamicStack:
     def __init__(self):
         self.array = []
     def PUSH(self,x): # O(1)
-        self.array+=[x]
+        self.array=[x]+self.array
     def POP(self):
-        ret_val = self.array[-1] 
-        self.array = self.array[0:-2:1] # O(n)
+        ret_val = self.array[0] 
+        self.array.remove(0) # O(1)
         return ret_val
+
+
     
 
 
